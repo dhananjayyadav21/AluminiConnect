@@ -18,6 +18,7 @@ export default function AboutPage() {
                     fill
                     className="object-cover scale-105 hover:scale-110 transition-transform duration-700"
                 />
+
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-black via-purple-950/50 to-black backdrop-blur-sm"></div>
 
