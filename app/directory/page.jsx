@@ -56,17 +56,18 @@ export default function AlumniDirectory() {
 
     return (
         <div className="min-h-screen bg-black text-white font-sans pt-16">
+
             {/* Hero Section */}
-            <section className="text-center bg-gradient-to-r from-black via-gray-900 to-black py-12 px-6 shadow-md">
-                <h1 className=" text-3xl md:text-4xl font-extrabold text-[#32a8a8] mb-3 tracking-wide drop-shadow-lg animate-pulse">
+            <section className="min-h-[60vh] text-center flex flex-col justify-center items-center bg-gradient-to-l from-black via-purple-950/30 to-black py-12 px-6 shadow-md">
+                <h1 className=" text-3xl md:text-5xl font-serif text-with-primary-outline mb-3 tracking-wide drop-shadow-lg animate-pulse">
                     Find and Connect with Alumni Worldwide
                 </h1>
-                <p className="text-gray-400 text-lg">
+                <p className="text-gray-300 text-lg">
                     Search and filter alumni to build strong professional networks.
                 </p>
 
                 {/* Search Bar */}
-                <div className="mt-8 max-w-2xl mx-auto flex items-center bg-gray-900 rounded-xl border border-gray-700 hover:border-[#32a8a8] transition-all shadow-lg">
+                <div className="mt-8 max-w-2xl mx-auto flex items-center bg-gray-900 rounded-xl border border-gray-700 hover:border-purple-600 transition-all shadow-lg">
                     <input
                         type="text"
                         placeholder="Search by name, batch, location..."
@@ -74,7 +75,7 @@ export default function AlumniDirectory() {
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
-                    <button className="px-4 text-[#32a8a8] hover:text-white transition">
+                    <button className="px-4 text-purple-600 hover:text-white transition">
                         <Search size={24} />
                     </button>
                 </div>
@@ -83,8 +84,8 @@ export default function AlumniDirectory() {
             {/* Main Content */}
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 px-6 py-12">
                 {/* Sidebar Filters */}
-                <aside className="w-full lg:w-72 bg-gray-900 rounded-xl p-6 border border-gray-800 shadow-lg">
-                    <h2 className="text-xl font-semibold text-[#32a8a8] mb-6 border-b border-gray-700 pb-3">
+                <aside className="w-full lg:w-72 bg-gray-950 rounded-xl p-6 border border-gray-800 shadow-lg">
+                    <h2 className="text-xl font-semibold text-with-secondary-outline mb-6 border-b border-gray-700 pb-3">
                         Filters
                     </h2>
                     <div className="space-y-6">
@@ -96,7 +97,7 @@ export default function AlumniDirectory() {
                                 onChange={(e) =>
                                     setSelectedFilters({ ...selectedFilters, batch: e.target.value })
                                 }
-                                className="w-full bg-black border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-[#32a8a8]"
+                                className="select-control"
                             >
                                 <option value="">All</option>
                                 <option value="2018">2018</option>
@@ -113,7 +114,7 @@ export default function AlumniDirectory() {
                                 onChange={(e) =>
                                     setSelectedFilters({ ...selectedFilters, department: e.target.value })
                                 }
-                                className="w-full bg-black border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-[#32a8a8]"
+                                className="select-control"
                             >
                                 <option value="">All</option>
                                 <option value="Computer Science">Computer Science</option>
@@ -130,7 +131,7 @@ export default function AlumniDirectory() {
                                 onChange={(e) =>
                                     setSelectedFilters({ ...selectedFilters, location: e.target.value })
                                 }
-                                className="w-full bg-black border border-gray-700 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-[#32a8a8]"
+                                className="select-control"
                             >
                                 <option value="">All</option>
                                 <option value="New York">New York</option>
@@ -147,13 +148,13 @@ export default function AlumniDirectory() {
                         filteredAlumni.map((alumni) => (
                             <div
                                 key={alumni.id}
-                                className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-[#32a8a8] hover:scale-105 hover:shadow-[0_0_20px_#32a8a8] transition-all duration-300 shadow-md"
+                                className="bg-gray-950 border border-gray-800 rounded-xl p-6 box-shadow-primary transition-all duration-300"
                             >
                                 <div className="flex flex-col items-center text-center">
                                     <img
                                         src={alumni.profilePic}
                                         alt={alumni.name}
-                                        className="w-24 h-24 rounded-full border-4 border-[#32a8a8] mb-4 hover:scale-110 transition-transform duration-300"
+                                        className="w-24 h-24 rounded-full border-4 border-purple-500 mb-4 hover:scale-110 transition-transform duration-300"
                                     />
                                     <h3 className="text-xl font-bold">{alumni.name}</h3>
                                     <p className="text-gray-400 text-sm">
@@ -164,11 +165,11 @@ export default function AlumniDirectory() {
                                     </p>
                                     <div className="flex gap-4 mt-5">
 
-                                        <Link href="/profile"><button className="flex items-center gap-2 bg-[#32a8a8] text-black px-4 py-2 rounded-lg font-semibold hover:bg-[#289494] transition-all">
+                                        <Link href="/profile"><button className="flex items-center gap-2 btn bg-purple-500 rounded-md transition-all">
                                             <Eye size={18} /> Profile
                                         </button></Link>
 
-                                        <Link href="/chatbox"><button className="flex items-center gap-2 border border-[#32a8a8] text-[#32a8a8] px-4 py-2 rounded-lg hover:bg-[#1a1a1a]">
+                                        <Link href="/chatbox"><button className="flex items-center gap-2 btn btn-outline-primary rounded-md">
                                             <MessageCircle size={18} /> Message
                                         </button></Link>
 
