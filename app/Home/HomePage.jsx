@@ -35,7 +35,7 @@ export default function HomePage() {
 
       {/* ✅ Hero Section */}
       <section className="bg-gradient-to-l from-black via-gray-950 to-black py-32 px-6 text-center min-h-full flex flex-col justify-center items-center">
-        <h1 className="text-bold text-4xl sm:text-[100px] font-edu-custom text-white text-shadow-[0_2px_10px_#d5d231]">A modern platform</h1>
+        <h1 className="text-bold text-4xl sm:text-[100px] font-edu-custom text-with-yellow-outline">A modern platform</h1>
         <p className="my-4 sm:my-8 max-w-2xl mx-auto text-md sm:text-2xl">
           To build alumni-student connections, mentorship, and career growth opportunities.
         </p>
@@ -47,14 +47,14 @@ export default function HomePage() {
         <div className="flex space-x-7 justify-center items-center my-10 md:my-15 md:text-xl text-bold">
           <Link
             href="/signup"
-            className="flex items-center gap-3 bg-gradient-to-l to-amber-300 from-amber-50 px-5 py-2 rounded-3xl border border-amber-200 text-amber-800 hover:to-amber-50 hover:from-amber-300 hover:text-amber-500 font-semibold transition duration-700 ease-in-out"
+            className="flex items-center gap-3 bg-gradient-to-l btn btn-gradient-yellow "
           >
             <span>Join Now</span> <span><Users className="w-5 h-5 text-amber-800 mx-auto" /></span>
           </Link>
 
           <Link
             href="/about"
-            className="px-5 py-2 rounded-3xl border border-amber-200 text-amber-400 hover:shadow-[0_0_10px_#d5d231] hover:text-amber-500 font-semibold transition duration-700 ease-in-out"
+            className="btn btn-outline-hover-yellow"
           >
             About Me
           </Link>
@@ -96,7 +96,7 @@ export default function HomePage() {
       {/* ✅ About Section */}
       <section className=" max-w-7xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div>
-          <h2 className="text-3xl font-bold text-[#ffffff] text-shadow-[0_0_6px_#a431d5] mb-4">About Alumni Hub VDT</h2>
+          <h2 className="text-3xl font-bold text-with-yellow-outline mb-4">About Alumni Hub VDT</h2>
           <p className="text-gray-400 text-lg leading-relaxed">
             Alumni Hub VDT (Virtual Discussion Table) bridges the gap between alumni and students,
             enabling knowledge sharing, mentorship, and professional networking for technical education.

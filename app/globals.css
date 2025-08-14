@@ -3,6 +3,8 @@
 @import "tailwindcss";
 
 @layer components {
+
+    /* Fonts utility class*/
     .font-edu-custom {
         font-family: "Edu NSW ACT Cursive", cursive;
         font-optical-sizing: auto;
@@ -20,6 +22,42 @@
         font-family: "DM Serif Text", serif;
         font-weight: 400;
         font-style: italic;
+    }
+
+    /* Text utility class */
+    .text-with-yellow-outline {
+        @apply text-white text-shadow-[0_0_10px_#d5d231]
+    }
+
+
+    /* btn control utility class*/
+    .btn {
+        @apply px-5 py-2 rounded-3xl border text-white cursor-pointer
+    }
+
+    .btn-sm {
+        @apply px-3 py-1 rounded-3xl border text-white cursor-pointer
+    }
+
+    .btn-full {
+        @apply px-5 py-2 rounded-3xl border w-full text-white cursor-pointer
+    }
+
+    .btn-outline-hover-yellow {
+        @apply border-amber-200 text-amber-400 hover:shadow-[0_0_10px_#d5d231] hover:text-amber-500 font-semibold transition duration-500 ease-in-out
+    }
+
+    .btn-outline-yellow {
+        @apply border-amber-200 text-amber-800 hover:to-amber-50 font-semibold transition duration-700 ease-in-out
+    }
+
+    .btn-gradient-yellow {
+        @apply bg-gradient-to-l to-amber-300 from-amber-50 border-amber-200 text-amber-800 hover:to-amber-50 hover:from-amber-300 hover:text-amber-600 font-semibold transition duration-700 ease-in-out
+    }
+
+    /* Input control utility class*/
+    .input-control {
+        @apply w-full px-4 py-3 rounded-lg bg-[#1a1a1a] text-white border border-[#2b2b2b] focus:ring-2 focus:ring-purple-600
     }
 
 }

@@ -9,7 +9,7 @@ export default function VerifyEmailPage() {
 
             {/* Verify Email Card */}
             <div className="bg-[#0d0d0d]/90 backdrop-blur-lg p-8 rounded-2xl shadow-xl w-full max-w-lg z-10 border border-[#2b2b2b] text-center">
-                <h2 className="text-3xl font-bold text-[#32a8a8] mb-4">Verify Your Email</h2>
+                <h2 className="text-3xl font-bold text-with-yellow-outline mb-4">Verify Your Email</h2>
                 <p className="text-gray-300 mb-6">
                     We have sent a verification link to your email address.
                     Please check your inbox and click the link to verify your account.
@@ -22,20 +22,20 @@ export default function VerifyEmailPage() {
                         alt="Email Illustration"
                         width={100}
                         height={100}
-                        className="opacity-80"
+                        className="opacity-100 bg-purple-300 py-2 px-4 rounded-lg"
                     />
                 </div>
 
                 {/* Buttons */}
                 <div className="space-y-4">
                     <button
-                        className="w-full bg-[#32a8a8] text-black font-bold py-3 rounded-lg hover:bg-[#2b9494] transition transform hover:scale-105"
+                        className="btn-full btn-gradient-yellow rounded-lg"
                     >
                         Resend Email
                     </button>
                     <Link
                         href="/login"
-                        className="block text-[#32a8a8] hover:underline text-sm"
+                        className="block text-with-yellow-outline text-sm"
                     >
                         Back to Login
                     </Link>

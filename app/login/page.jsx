@@ -24,7 +24,7 @@ export default function LoginPage() {
 
             {/* Login Form */}
             <div className="bg-[#0d0d0d]/90 backdrop-blur-lg p-8 rounded-2xl shadow-xl w-full max-w-md z-10 border border-[#2b2b2b]">
-                <h2 className="text-3xl font-bold text-center text-[#32a8a8] mb-6">Login</h2>
+                <h2 className="text-3xl font-bold text-center text-with-yellow-outline mb-6">Login</h2>
 
                 {/* Toggle Buttons */}
                 <div className="flex justify-center space-x-4 mb-6">
@@ -32,7 +32,7 @@ export default function LoginPage() {
                         <button
                             key={option}
                             onClick={() => setRole(option)}
-                            className={`px-4 py-2 rounded-full font-semibold transition ${role === option ? "bg-[#32a8a8] text-black" : "bg-[#1a1a1a] text-white"
+                            className={`btn btn-outline-yellow transition ${role === option ? "bg-gradient-to-l to-amber-300 from-amber-50 text-amber-700" : "bg-[#1a1a1a] text-amber-500"
                                 }`}
                         >
                             {option}
@@ -45,16 +45,16 @@ export default function LoginPage() {
                     <input
                         type="email"
                         placeholder="Email"
-                        className="w-full px-4 py-3 rounded-lg bg-[#1a1a1a] text-white border border-[#2b2b2b] focus:ring-2 focus:ring-[#32a8a8]"
+                        className="input-control"
                     />
                     <input
                         type="password"
                         placeholder="Password"
-                        className="w-full px-4 py-3 rounded-lg bg-[#1a1a1a] text-white border border-[#2b2b2b] focus:ring-2 focus:ring-[#32a8a8]"
+                        className="input-control"
                     />
                     <button
                         type="submit"
-                        className="w-full bg-[#32a8a8] text-black font-bold py-3 rounded-lg hover:bg-[#2b9494] transition transform hover:scale-105"
+                        className="btn-full btn-gradient-yellow"
                     >
                         Login
                     </button>
@@ -62,7 +62,7 @@ export default function LoginPage() {
 
                 <p className="text-gray-400 text-center mt-4">
                     Don’t have an account?{" "}
-                    <Link href="/signup" className="text-[#32a8a8] hover:underline">
+                    <Link href="/signup" className="text-with-yellow-outline hover:underline  underline-offset-4 transition duration-1000 ease-in">
                         Sign Up
                     </Link>
                 </p>
@@ -70,7 +70,7 @@ export default function LoginPage() {
                 <p className="text-gray-400 text-center mt-4">
                     Verify email via recieve code{" "}
 
-                    <Link href="/verifyemail" className="text-[#32a8a8] hover:underline">
+                    <Link href="/verifyemail" className="text-with-yellow-outline hover:underline  underline-offset-4 transition duration-1000 ease-in">
                         verify
                     </Link>
                 </p>

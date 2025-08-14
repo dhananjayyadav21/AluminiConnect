@@ -28,7 +28,7 @@ export default function Navbar() {
 
                         <Link
                             href="/login"
-                            className="bg-white px-4 py-1 rounded-2xl border border-amber-200 text-black hover:shadow-[0_0_6px_#d5d231] hover:text-amber-500 font-semibold transition duration-700 ease-in-out"
+                            className="btn-sm btn-outline-hover-yellow"
                         >
                             Login
                         </Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
                         <Link href="/forum" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Forum</Link>
                         <Link
                             href="/login"
-                            className="bg-white px-4 py-1 rounded-2xl border border-amber-200 text-black hover:shadow-[0_0_6px_#d5d231] hover:text-amber-500 font-semibold transition duration-700 ease-in-out"
+                            className="btn btn-outline-hover-yellow"
                         >
                             Login
                         </Link>
