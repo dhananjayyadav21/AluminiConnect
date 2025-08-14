@@ -13,22 +13,22 @@ export default function Navbar() {
                 <div className="flex justify-between items-center h-16">
                     {/* ✅ Logo */}
                     <div className="flex items-center">
-                        <Link href="/" className="text-[#32a8a8] text-2xl font-bold">
+                        <Link href="/" className="text-[#a431d5] text-2xl font-bold">
                             EduNet Nexus <span className="text-gray-400 text-sm hidden md:inline">| Find Your Next Opportunity</span>
                         </Link>
                     </div>
 
                     {/* ✅ Desktop Menu */}
                     <div className="hidden md:flex items-center space-x-8">
-                        <Link href="/" className="hover:text-[#32a8a8] transition">Home</Link>
-                        <Link href="/about" className="hover:text-[#32a8a8] transition">About</Link>
-                        <Link href="/directory" className="hover:text-[#32a8a8] transition">Directory</Link>
-                        <Link href="/jobs" className="hover:text-[#32a8a8] transition">Jobs</Link>
-                        <Link href="/eventspage" className="hover:text-[#32a8a8] transition">Events</Link>
-                        <Link href="/forum" className="hover:text-[#32a8a8] transition">Forum</Link>
+                        <Link href="/" className="hover:text-[#a431d5] hover:underline hover:underline-offset-5 transition duration-500 ease-in-out">Home</Link>
+                        <Link href="/about" className="hover:text-[#a431d5] hover:underline hover:underline-offset-5 transition duration-500 ease-in-out">About</Link>
+                        <Link href="/directory" className="hover:text-[#a431d5] hover:underline hover:underline-offset-5 transition duration-500 ease-in-out">Directory</Link>
+                        <Link href="/jobs" className="hover:text-[#a431d5] hover:underline hover:underline-offset-5 transition duration-500 ease-in-out">Jobs</Link>
+                        <Link href="/eventspage" className="hover:text-[#a431d5] hover:underline hover:underline-offset-5 transition duration-500 ease-in-out">Events</Link>
+
                         <Link
                             href="/login"
-                            className="bg-[#32a8a8] px-4 py-2 rounded-md text-black hover:bg-[#2a9292] font-semibold transition"
+                            className="bg-white px-4 py-1 rounded-2xl border border-amber-200 text-black hover:shadow-[0_0_6px_#d5d231] hover:text-amber-500 font-semibold transition duration-700 ease-in-out"
                         >
                             Login
                         </Link>
@@ -51,11 +51,11 @@ export default function Navbar() {
             {isOpen && (
                 <div className="fixed inset-0 bg-black/90 backdrop-blur-md flex flex-col justify-center items-center z-50 animate-fadeIn">
                     {/* ✅ Top Section with Logo & Close Button */}
-                    <div className="absolute top-4 left-4 text-[#32a8a8] text-2xl font-bold">
+                    <div className="absolute top-4 left-4 text-[#a431d5] text-2xl font-bold">
                         EduNet Nexus
                     </div>
                     <button
-                        className="absolute top-4 right-4 text-white hover:text-[#32a8a8] transition"
+                        className="absolute top-4 right-4 text-white hover:text-[#a431d5] transition"
                         onClick={() => setIsOpen(false)}
                     >
                         <X size={32} />
@@ -63,16 +63,15 @@ export default function Navbar() {
 
                     {/* ✅ Menu Links */}
                     <div className="flex flex-col items-center space-y-8 text-xl mt-10">
-                        <Link href="/" className="hover:text-[#32a8a8]" onClick={() => setIsOpen(false)}>Home</Link>
-                        <Link href="/about" className="hover:text-[#32a8a8]" onClick={() => setIsOpen(false)}>About</Link>
-                        <Link href="/directory" className="hover:text-[#32a8a8]" onClick={() => setIsOpen(false)}>Directory</Link>
-                        <Link href="/jobs" className="hover:text-[#32a8a8]" onClick={() => setIsOpen(false)}>Jobs</Link>
-                        <Link href="/eventspage" className="hover:text-[#32a8a8]" onClick={() => setIsOpen(false)}>Events</Link>
-                        <Link href="/forum" className="hover:text-[#32a8a8]" onClick={() => setIsOpen(false)}>Forum</Link>
+                        <Link href="/" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Home</Link>
+                        <Link href="/about" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>About</Link>
+                        <Link href="/directory" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Directory</Link>
+                        <Link href="/jobs" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Jobs</Link>
+                        <Link href="/eventspage" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Events</Link>
+                        <Link href="/forum" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Forum</Link>
                         <Link
                             href="/login"
-                            className="bg-[#32a8a8] text-black px-6 py-3 rounded-md font-semibold hover:bg-[#2a9292] transition"
-                            onClick={() => setIsOpen(false)}
+                            className="bg-white px-4 py-1 rounded-2xl border border-amber-200 text-black hover:shadow-[0_0_6px_#d5d231] hover:text-amber-500 font-semibold transition duration-700 ease-in-out"
                         >
                             Login
                         </Link>
