@@ -24,7 +24,7 @@ export default function LoginPage() {
 
             {/* Login Form */}
             <div className="bg-[#0d0d0d]/90 backdrop-blur-lg p-8 rounded-2xl shadow-xl w-full max-w-md z-10 border border-[#2b2b2b]">
-                <h2 className="text-3xl font-bold text-center text-with-yellow-outline mb-6">Login</h2>
+                <h2 className="text-3xl font-bold text-center text-with-secondary-outline mb-6">Login</h2>
 
                 {/* Toggle Buttons */}
                 <div className="flex justify-center space-x-4 mb-6">
@@ -54,7 +54,7 @@ export default function LoginPage() {
                     />
                     <button
                         type="submit"
-                        className="btn-full btn-gradient-yellow"
+                        className="btn-full btn-gradient-secondary"
                     >
                         Login
                     </button>
@@ -62,7 +62,7 @@ export default function LoginPage() {
 
                 <p className="text-gray-400 text-center mt-4">
                     Don’t have an account?{" "}
-                    <Link href="/signup" className="text-with-yellow-outline hover:underline  underline-offset-4 transition duration-1000 ease-in">
+                    <Link href="/signup" className="text-with-secondary-outline hover:underline  underline-offset-4 transition duration-1000 ease-in">
                         Sign Up
                     </Link>
                 </p>
@@ -70,7 +70,7 @@ export default function LoginPage() {
                 <p className="text-gray-400 text-center mt-4">
                     Verify email via recieve code{" "}
 
-                    <Link href="/verifyemail" className="text-with-yellow-outline hover:underline  underline-offset-4 transition duration-1000 ease-in">
+                    <Link href="/verifyemail" className="text-with-secondary-outline hover:underline  underline-offset-4 transition duration-1000 ease-in">
                         verify
                     </Link>
                 </p>

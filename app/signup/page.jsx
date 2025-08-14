@@ -26,7 +26,7 @@ export default function SignupPage() {
 
                 {/* Signup Form */}
                 <div className="bg-[#0d0d0d] bg-opacity-95 backdrop-blur-md p-8 rounded-2xl shadow-xl w-full max-w-lg z-10 border border-[#2b2b2b]">
-                    <h2 className="text-3xl font-bold text-center text-with-yellow-outline mb-6">Sign Up</h2>
+                    <h2 className="text-3xl font-bold text-center text-with-secondary-outline mb-6">Sign Up</h2>
 
                     {/* Role Toggle */}
                     <div className="flex justify-center space-x-4 mb-6">
@@ -34,7 +34,7 @@ export default function SignupPage() {
                             <button
                                 key={option}
                                 onClick={() => setRole(option)}
-                                className={`btn btn-outline-yellow transition ${role === option ? "bg-gradient-to-l to-amber-300 from-amber-50 text-amber-700" : "bg-[#1a1a1a] text-amber-500"
+                                className={`btn btn-outline-secondary transition ${role === option ? "bg-gradient-to-l to-amber-300 from-amber-50 text-amber-700" : "bg-[#1a1a1a] text-amber-500"
                                     }`}
                             >
                                 {option}
@@ -74,7 +74,7 @@ export default function SignupPage() {
                         />
                         <button
                             type="submit"
-                            className="btn btn-full btn-gradient-yellow"
+                            className="btn btn-full btn-gradient-secondary"
                         >
                             Sign Up
                         </button>
@@ -82,7 +82,7 @@ export default function SignupPage() {
 
                     <p className="text-gray-400 text-center mt-4">
                         Already have an account?{" "}
-                        <Link href="/login" className="text-with-yellow-outline hover:underline  underline-offset-4 transition duration-1000 ease-in">
+                        <Link href="/login" className="text-with-secondary-outline hover:underline  underline-offset-4 transition duration-1000 ease-in">
                             Login
                         </Link>
                     </p>

@@ -11,14 +11,14 @@ export default function Navbar() {
         <nav className="bg-black text-white shadow-md fixed w-full z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
-                    {/* ✅ Logo */}
+                    {/*  Logo */}
                     <div className="flex items-center">
-                        <Link href="/" className="text-[#a431d5] text-2xl font-bold">
-                            EduNet Nexus <span className="text-gray-400 text-sm hidden md:inline">| Find Your Next Opportunity</span>
+                        <Link href="/" className="text-purple-400 text-2xl font-bold">
+                            <span className="text-with-primary-outline">EduNet</span> Nexus <span className="text-gray-400 text-sm hidden md:inline">| Find Your Next Opportunity</span>
                         </Link>
                     </div>
 
-                    {/* ✅ Desktop Menu */}
+                    {/*  Desktop Menu */}
                     <div className="hidden md:flex items-center space-x-8">
                         <Link href="/" className="hover:text-[#a431d5] hover:underline hover:underline-offset-5 transition duration-500 ease-in-out">Home</Link>
                         <Link href="/about" className="hover:text-[#a431d5] hover:underline hover:underline-offset-5 transition duration-500 ease-in-out">About</Link>
@@ -28,13 +28,13 @@ export default function Navbar() {
 
                         <Link
                             href="/login"
-                            className="btn-sm btn-outline-hover-yellow"
+                            className="btn-sm btn-outline-hover-secondary"
                         >
                             Login
                         </Link>
                     </div>
 
-                    {/* ✅ Mobile Menu Button */}
+                    {/*  Mobile Menu Button */}
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={() => setIsOpen(true)}
@@ -47,11 +47,11 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* ✅ Fullscreen Mobile Menu with Blur */}
+            {/*  Fullscreen Mobile Menu with Blur */}
             {isOpen && (
                 <div className="fixed inset-0 bg-black/90 backdrop-blur-md flex flex-col justify-center items-center z-50 animate-fadeIn">
-                    {/* ✅ Top Section with Logo & Close Button */}
-                    <div className="absolute top-4 left-4 text-[#a431d5] text-2xl font-bold">
+                    {/*  Top Section with Logo & Close Button */}
+                    <div className="absolute top-4 left-4 text-primary text-2xl font-bold">
                         EduNet Nexus
                     </div>
                     <button
@@ -61,7 +61,7 @@ export default function Navbar() {
                         <X size={32} />
                     </button>
 
-                    {/* ✅ Menu Links */}
+                    {/*  Menu Links */}
                     <div className="flex flex-col items-center space-y-8 text-xl mt-10">
                         <Link href="/" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Home</Link>
                         <Link href="/about" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>About</Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
                         <Link href="/forum" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Forum</Link>
                         <Link
                             href="/login"
-                            className="btn btn-outline-hover-yellow"
+                            className="btn btn-outline-hover-secondary"
                         >
                             Login
                         </Link>
