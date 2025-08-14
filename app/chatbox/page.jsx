@@ -50,7 +50,7 @@ export default function AlumniChatPage() {
     };
 
     return (
-        <div className="bg-black text-white min-h-screen pt-16 flex">
+        <div className="bg-black text-white min-h-screen pt-17 flex">
             {/* Sidebar */}
             <aside className="w-72 bg-gray-950 border-r border-gray-800 flex flex-col">
                 <div className="p-4 border-b border-gray-700">
@@ -68,7 +68,7 @@ export default function AlumniChatPage() {
                         <div
                             key={chat.id}
                             onClick={() => setSelectedChat(chat)}
-                            className={`flex items-center gap-3 p-4 cursor-pointer hover:bg-gray-950 transition ${selectedChat?.id === chat.id ? "bg-gray-950 border-l-4 border-[#32a8a8]" : ""
+                            className={`flex items-center gap-3 p-4 cursor-pointer hover:bg-gray-950 transition ${selectedChat?.id === chat.id ? "bg-gray-950 border-l-4 border-purple-600" : ""
                                 }`}
                         >
                             <div className="relative">
@@ -115,12 +115,12 @@ export default function AlumniChatPage() {
                                 >
                                     <div
                                         className={`max-w-xs px-4 py-2 rounded-xl shadow ${msg.sender === "You"
-                                            ? "bg-gradient-to-r from-[#32a8a8] to-[#1f8888] text-black"
+                                            ? "bg-gradient-to-r from-purple-400 to-purple-500 text-black"
                                             : "bg-gray-950 text-gray-200"
                                             }`}
                                     >
                                         <p>{msg.text}</p>
-                                        <span className="text-xs block mt-1 text-gray-400">{msg.time}</span>
+                                        <span className="text-xs block mt-1 text-gray-300">{msg.time}</span>
                                     </div>
                                 </div>
                             ))}
@@ -140,7 +140,7 @@ export default function AlumniChatPage() {
                             />
                             <button
                                 onClick={handleSendMessage}
-                                className="bg-[#32a8a8] text-black px-4 py-2 rounded-lg hover:bg-[#2b9494] transition"
+                                className="bg-purple-600 text-black px-4 py-2 rounded-lg hover:bg-purple-700 transition"
                             >
                                 <Send size={18} />
                             </button>
