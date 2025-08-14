@@ -68,7 +68,6 @@ export default function Navbar() {
                         <Link href="/directory" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Directory</Link>
                         <Link href="/jobs" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Jobs</Link>
                         <Link href="/eventspage" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Events</Link>
-                        <Link href="/forum" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Forum</Link>
                         <Link
                             href="/login"
                             className="btn btn-outline-hover-secondary"

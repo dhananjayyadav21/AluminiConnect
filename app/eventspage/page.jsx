@@ -74,7 +74,7 @@ export default function EventsPage() {
             {/* Hero Section */}
             <div className="relative w-full h-[100vh]">
                 <img
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+                    src="/assets/img/event.jpeg"
                     alt="Event Background"
                     className="absolute inset-0 w-full h-full object-cover "
                 />

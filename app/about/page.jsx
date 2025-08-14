@@ -13,14 +13,14 @@ export default function AboutPage() {
             {/*  Hero Section */}
             <section className="relative w-full min-h-[100vh] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+                    src="/assets/img/about.jpeg"
                     alt="Alumni Interaction"
                     fill
                     className="object-cover scale-105 hover:scale-110 transition-transform duration-700"
                 />
 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-purple-950/50 to-black backdrop-blur-sm"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-black via-purple-950/50 to-black backdrop-blur-xs"></div>
 
 
                 <div className="relative z-10 min-h-full text-center px-4">
