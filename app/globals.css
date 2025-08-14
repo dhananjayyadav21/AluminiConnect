@@ -66,9 +66,16 @@
         @apply border-amber-200 text-amber-800 hover:to-amber-50 font-semibold transition duration-300 ease-in-out
     }
 
+    .btn-gradient-primary {
+        @apply bg-gradient-to-l to-purple-300 via-purple-400 from-purple-700 border-purple-200 text-purple-800 hover:to-purple-700 hover:from-purple-400 hover:text-purple-300 font-semibold transition duration-300 ease-in-out
+    }
+
     .btn-gradient-secondary {
         @apply bg-gradient-to-l to-amber-300 from-amber-50 border-amber-200 text-amber-800 hover:to-amber-50 hover:from-amber-300 hover:text-amber-600 font-semibold transition duration-300 ease-in-out
     }
+
+
+
 
     /* Input control utility class*/
     .input-control {
