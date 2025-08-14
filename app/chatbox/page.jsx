@@ -52,9 +52,9 @@ export default function AlumniChatPage() {
     return (
         <div className="bg-black text-white min-h-screen pt-16 flex">
             {/* Sidebar */}
-            <aside className="w-72 bg-gray-900 border-r border-gray-800 flex flex-col">
+            <aside className="w-72 bg-gray-950 border-r border-gray-800 flex flex-col">
                 <div className="p-4 border-b border-gray-700">
-                    <div className="flex items-center bg-gray-800 rounded-lg px-3 py-2">
+                    <div className="flex items-center bg-gray-950 rounded-lg px-3 py-2">
                         <Search size={18} className="text-gray-400" />
                         <input
                             type="text"
@@ -68,7 +68,7 @@ export default function AlumniChatPage() {
                         <div
                             key={chat.id}
                             onClick={() => setSelectedChat(chat)}
-                            className={`flex items-center gap-3 p-4 cursor-pointer hover:bg-gray-800 transition ${selectedChat?.id === chat.id ? "bg-gray-800 border-l-4 border-[#32a8a8]" : ""
+                            className={`flex items-center gap-3 p-4 cursor-pointer hover:bg-gray-950 transition ${selectedChat?.id === chat.id ? "bg-gray-950 border-l-4 border-[#32a8a8]" : ""
                                 }`}
                         >
                             <div className="relative">
@@ -91,7 +91,7 @@ export default function AlumniChatPage() {
                 {selectedChat ? (
                     <>
                         {/* Header */}
-                        <div className="flex items-center justify-between p-4 border-b border-gray-700 bg-gray-900">
+                        <div className="flex items-center justify-between p-4 border-b border-gray-700 bg-gray-950">
                             <div className="flex items-center gap-3">
                                 <img
                                     src={selectedChat.img}
@@ -116,7 +116,7 @@ export default function AlumniChatPage() {
                                     <div
                                         className={`max-w-xs px-4 py-2 rounded-xl shadow ${msg.sender === "You"
                                             ? "bg-gradient-to-r from-[#32a8a8] to-[#1f8888] text-black"
-                                            : "bg-gray-800 text-gray-200"
+                                            : "bg-gray-950 text-gray-200"
                                             }`}
                                     >
                                         <p>{msg.text}</p>
@@ -127,14 +127,14 @@ export default function AlumniChatPage() {
                         </div>
 
                         {/* Input Bar */}
-                        <div className="p-4 border-t border-gray-700 bg-gray-900 flex items-center gap-3">
+                        <div className="p-4 border-t border-gray-700 bg-gray-950 flex items-center gap-3">
                             <button className="text-gray-400 hover:text-white">
                                 <Paperclip size={22} />
                             </button>
                             <input
                                 type="text"
                                 placeholder="Type a message..."
-                                className="flex-1 px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:ring-2 focus:ring-[#32a8a8]"
+                                className="input-control"
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
                             />

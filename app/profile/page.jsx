@@ -56,19 +56,19 @@ export default function ProfilePage() {
                     alt="Cover"
                     className="absolute inset-0 w-full h-full object-cover opacity-30"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 from to-transparent"></div>
             </div>
 
             {/* Profile Content */}
             <div className="max-w-5xl mx-auto relative -mt-20">
                 {/* Profile Card */}
-                <div className="bg-gray-900 rounded-xl shadow-lg p-6 sm:p-8 text-center relative">
+                <div className="bg-gray-950 border border-gray-600 rounded-xl shadow-lg p-6 sm:p-8 text-center relative">
                     {/* Profile Picture */}
                     <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
                         <img
                             src="https://randomuser.me/api/portraits/men/75.jpg"
                             alt="Profile"
-                            className="w-32 h-32 rounded-full border-4 border-[#32a8a8] object-cover"
+                            className="w-32 h-32 rounded-full border-4 border-amber-600 object-cover"
                         />
                     </div>
 
@@ -86,7 +86,7 @@ export default function ProfilePage() {
                     <div className="absolute top-4 right-4">
                         <button
                             onClick={() => setIsEditOpen(true)}
-                            className="flex items-center gap-2 bg-[#32a8a8] text-black px-4 py-2 rounded-lg hover:bg-[#289191] font-semibold"
+                            className="flex items-center gap-2 btn btn-gradient-secondary"
                         >
                             <Edit3 size={18} /> Edit Profile
                         </button>
@@ -94,8 +94,8 @@ export default function ProfilePage() {
                 </div>
 
                 {/* About Section */}
-                <div className="bg-gray-900 rounded-xl mt-8 p-6 shadow-lg">
-                    <h2 className="text-xl font-bold text-[#32a8a8] mb-4">About</h2>
+                <div className="bg-gray-950 border border-gray-600 rounded-xl mt-8 p-6 shadow-lg">
+                    <h2 className="text-xl font-bold text-with-secondary-outline mb-4">About</h2>
                     <p className="text-gray-300 mb-4">{user.bio}</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-400">
                         <p><strong>Graduation Year:</strong> {user.graduationYear}</p>
@@ -106,8 +106,8 @@ export default function ProfilePage() {
                 </div>
 
                 {/* Contact Info */}
-                <div className="bg-gray-900 rounded-xl mt-8 p-6 shadow-lg">
-                    <h2 className="text-xl font-bold text-[#32a8a8] mb-4">Contact Information</h2>
+                <div className="bg-gray-950 border border-gray-600 rounded-xl mt-8 p-6 shadow-lg">
+                    <h2 className="text-xl font-bold text-with-secondary-outline mb-4">Contact Information</h2>
                     <div className="space-y-3 text-gray-400">
                         <p className="flex items-center gap-3"><Mail size={18} /> {user.email}</p>
                         <p className="flex items-center gap-3"><Phone size={18} /> {user.phone}</p>
@@ -115,7 +115,7 @@ export default function ProfilePage() {
                             href={user.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-3 hover:text-[#32a8a8]"
+                            className="flex items-center gap-3 hover:text-with-secondary-outline"
                         >
                             <Linkedin size={18} /> LinkedIn Profile
                         </a>
@@ -125,11 +125,11 @@ export default function ProfilePage() {
                 {/* Timeline Section */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                     {/* Education */}
-                    <div className="bg-gray-900 rounded-xl p-6 shadow-lg">
-                        <h2 className="text-xl font-bold text-[#32a8a8] mb-4">Education</h2>
+                    <div className="bg-gray-950 border border-gray-600 rounded-xl p-6 shadow-lg">
+                        <h2 className="text-xl font-bold text-with-secondary-outline mb-4">Education</h2>
                         <div className="space-y-3">
                             {user.education.map((edu, idx) => (
-                                <div key={idx} className="border-l-4 border-[#32a8a8] pl-4">
+                                <div key={idx} className="border-l-4 border-purple-600 pl-4">
                                     <p className="text-sm text-gray-500">{edu.year}</p>
                                     <p className="font-semibold">{edu.degree}</p>
                                     <p className="text-gray-400">{edu.institution}</p>
@@ -139,11 +139,11 @@ export default function ProfilePage() {
                     </div>
 
                     {/* Work */}
-                    <div className="bg-gray-900 rounded-xl p-6 shadow-lg">
-                        <h2 className="text-xl font-bold text-[#32a8a8] mb-4">Work Experience</h2>
+                    <div className="bg-gray-950 border border-gray-600 rounded-xl p-6 shadow-lg">
+                        <h2 className="text-xl font-bold text-with-secondary-outline mb-4">Work Experience</h2>
                         <div className="space-y-3">
                             {user.work.map((job, idx) => (
-                                <div key={idx} className="border-l-4 border-[#32a8a8] pl-4">
+                                <div key={idx} className="border-l-4 border-purple-600 pl-4">
                                     <p className="text-sm text-gray-500">{job.year}</p>
                                     <p className="font-semibold">{job.position}</p>
                                     <p className="text-gray-400">{job.company}</p>
@@ -156,129 +156,131 @@ export default function ProfilePage() {
 
             {/* Edit Profile Modal */}
             {isEditOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4 overflow-y-auto">
-                    <div className="bg-gray-900 rounded-xl max-w-2xl w-full p-6 relative mt-160 sm:mt-100">
-                        <button
-                            onClick={() => setIsEditOpen(false)}
-                            className="absolute top-4 right-4 text-gray-400 hover:text-white"
-                        >
-                            <X size={24} />
-                        </button>
-                        <h2 className="text-xl font-bold text-[#32a8a8] mb-4">Edit Profile</h2>
-
-                        <div className="space-y-3">
-                            {["name", "designation", "company", "location", "bio", "graduationYear", "department", "email", "phone", "linkedin"].map((field) => (
-                                <input
-                                    key={field}
-                                    type="text"
-                                    placeholder={field.replace(/([A-Z])/g, " $1")}
-                                    value={editData[field]}
-                                    onChange={(e) => setEditData({ ...editData, [field]: e.target.value })}
-                                    className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:ring-2 focus:ring-[#32a8a8]"
-                                />
-                            ))}
-
-                            {/* Education Edit */}
-                            <h3 className="text-lg text-[#32a8a8] mt-4">Education</h3>
-                            {editData.education.map((edu, idx) => (
-                                <div key={idx} className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                                    <input
-                                        type="text"
-                                        placeholder="Year"
-                                        value={edu.year}
-                                        onChange={(e) => {
-                                            const updatedEdu = [...editData.education];
-                                            updatedEdu[idx].year = e.target.value;
-                                            setEditData({ ...editData, education: updatedEdu });
-                                        }}
-                                        className="bg-gray-800 text-white px-2 py-2 rounded border border-gray-700"
-                                    />
-                                    <input
-                                        type="text"
-                                        placeholder="Degree"
-                                        value={edu.degree}
-                                        onChange={(e) => {
-                                            const updatedEdu = [...editData.education];
-                                            updatedEdu[idx].degree = e.target.value;
-                                            setEditData({ ...editData, education: updatedEdu });
-                                        }}
-                                        className="bg-gray-800 text-white px-2 py-2 rounded border border-gray-700"
-                                    />
-                                    <input
-                                        type="text"
-                                        placeholder="Institution"
-                                        value={edu.institution}
-                                        onChange={(e) => {
-                                            const updatedEdu = [...editData.education];
-                                            updatedEdu[idx].institution = e.target.value;
-                                            setEditData({ ...editData, education: updatedEdu });
-                                        }}
-                                        className="bg-gray-800 text-white px-2 py-2 rounded border border-gray-700"
-                                    />
-                                </div>
-                            ))}
+                <section className="py-4">
+                    <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4 overflow-y-auto mt-17">
+                        <div className="bg-gray-950 border border-gray-600 rounded-xl max-w-2xl w-full p-6 relative mt-160 sm:mt-100">
                             <button
-                                onClick={addEducation}
-                                className="text-[#32a8a8] flex items-center gap-2 mt-2"
+                                onClick={() => setIsEditOpen(false)}
+                                className="absolute top-4 right-4 text-gray-400 hover:text-white"
                             >
-                                <Plus size={18} /> Add Education
+                                <X size={24} />
                             </button>
+                            <h2 className="text-xl font-bold text-with-secondary-outline mb-4">Edit Profile</h2>
 
-                            {/* Work Edit */}
-                            <h3 className="text-lg text-[#32a8a8] mt-4">Work Experience</h3>
-                            {editData.work.map((job, idx) => (
-                                <div key={idx} className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <div className="space-y-3">
+                                {["name", "designation", "company", "location", "bio", "graduationYear", "department", "email", "phone", "linkedin"].map((field) => (
                                     <input
+                                        key={field}
                                         type="text"
-                                        placeholder="Year"
-                                        value={job.year}
-                                        onChange={(e) => {
-                                            const updatedWork = [...editData.work];
-                                            updatedWork[idx].year = e.target.value;
-                                            setEditData({ ...editData, work: updatedWork });
-                                        }}
-                                        className="bg-gray-800 text-white px-2 py-2 rounded border border-gray-700"
+                                        placeholder={field.replace(/([A-Z])/g, " $1")}
+                                        value={editData[field]}
+                                        onChange={(e) => setEditData({ ...editData, [field]: e.target.value })}
+                                        className="input-control"
                                     />
-                                    <input
-                                        type="text"
-                                        placeholder="Position"
-                                        value={job.position}
-                                        onChange={(e) => {
-                                            const updatedWork = [...editData.work];
-                                            updatedWork[idx].position = e.target.value;
-                                            setEditData({ ...editData, work: updatedWork });
-                                        }}
-                                        className="bg-gray-800 text-white px-2 py-2 rounded border border-gray-700"
-                                    />
-                                    <input
-                                        type="text"
-                                        placeholder="Company"
-                                        value={job.company}
-                                        onChange={(e) => {
-                                            const updatedWork = [...editData.work];
-                                            updatedWork[idx].company = e.target.value;
-                                            setEditData({ ...editData, work: updatedWork });
-                                        }}
-                                        className="bg-gray-800 text-white px-2 py-2 rounded border border-gray-700"
-                                    />
-                                </div>
-                            ))}
-                            <button
-                                onClick={addWork}
-                                className="text-[#32a8a8] flex items-center gap-2 mt-2"
-                            >
-                                <Plus size={18} /> Add Work
-                            </button>
+                                ))}
 
-                            <button
-                                onClick={handleSave}
-                                className="w-full mt-6 bg-[#32a8a8] text-black font-bold py-3 rounded-lg hover:bg-[#289191]"
-                            >
-                                Save Changes
-                            </button>
+                                {/* Education Edit */}
+                                <h3 className="text-lg text-with-secondary-outline mt-4">Education</h3>
+                                {editData.education.map((edu, idx) => (
+                                    <div key={idx} className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                        <input
+                                            type="text"
+                                            placeholder="Year"
+                                            value={edu.year}
+                                            onChange={(e) => {
+                                                const updatedEdu = [...editData.education];
+                                                updatedEdu[idx].year = e.target.value;
+                                                setEditData({ ...editData, education: updatedEdu });
+                                            }}
+                                            className="input-control"
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="Degree"
+                                            value={edu.degree}
+                                            onChange={(e) => {
+                                                const updatedEdu = [...editData.education];
+                                                updatedEdu[idx].degree = e.target.value;
+                                                setEditData({ ...editData, education: updatedEdu });
+                                            }}
+                                            className="input-control"
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="Institution"
+                                            value={edu.institution}
+                                            onChange={(e) => {
+                                                const updatedEdu = [...editData.education];
+                                                updatedEdu[idx].institution = e.target.value;
+                                                setEditData({ ...editData, education: updatedEdu });
+                                            }}
+                                            className="input-control"
+                                        />
+                                    </div>
+                                ))}
+                                <button
+                                    onClick={addEducation}
+                                    className="text-with-secondary-outline flex items-center gap-2 mt-2"
+                                >
+                                    <Plus size={18} /> Add Education
+                                </button>
+
+                                {/* Work Edit */}
+                                <h3 className="text-lg text-with-secondary-outline mt-4">Work Experience</h3>
+                                {editData.work.map((job, idx) => (
+                                    <div key={idx} className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                        <input
+                                            type="text"
+                                            placeholder="Year"
+                                            value={job.year}
+                                            onChange={(e) => {
+                                                const updatedWork = [...editData.work];
+                                                updatedWork[idx].year = e.target.value;
+                                                setEditData({ ...editData, work: updatedWork });
+                                            }}
+                                            className="input-control"
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="Position"
+                                            value={job.position}
+                                            onChange={(e) => {
+                                                const updatedWork = [...editData.work];
+                                                updatedWork[idx].position = e.target.value;
+                                                setEditData({ ...editData, work: updatedWork });
+                                            }}
+                                            className="input-control"
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="Company"
+                                            value={job.company}
+                                            onChange={(e) => {
+                                                const updatedWork = [...editData.work];
+                                                updatedWork[idx].company = e.target.value;
+                                                setEditData({ ...editData, work: updatedWork });
+                                            }}
+                                            className="input-control"
+                                        />
+                                    </div>
+                                ))}
+                                <button
+                                    onClick={addWork}
+                                    className="text-with-secondary-outline flex items-center gap-2 mt-2"
+                                >
+                                    <Plus size={18} /> Add Work
+                                </button>
+
+                                <button
+                                    onClick={handleSave}
+                                    className="btn btn-full btn-gradient-secondary rounded-lg my-5"
+                                >
+                                    Save Changes
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
             )}
         </div>
     );
