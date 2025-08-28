@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/Components/Navbar";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -28,6 +29,27 @@ export default function RootLayout({ children }) {
         <Navbar />
         <div>
           {children}
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                background: "#000000",
+                color: "#fff",
+              },
+              success: {
+                iconTheme: {
+                  primary: "#4ade80",
+                  secondary: "#fff",
+                },
+              },
+              error: {
+                iconTheme: {
+                  primary: "#ef4444",
+                  secondary: "#fff",
+                },
+              },
+            }}
+          />
         </div>
 
       </body>

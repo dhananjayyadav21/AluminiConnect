@@ -59,12 +59,20 @@
         @apply border-amber-200 text-amber-400 hover:shadow-[0_0_10px_#d5d231] hover:text-amber-500 font-semibold transition duration-300 ease-in-out
     }
 
+    .btn-outline-hover-red {
+        @apply border-red-300 text-red-500 hover:shadow-[0_0_10px_#FF0000] hover:text-red-600 font-semibold transition duration-300 ease-in-out
+    }
+
     .btn-outline-primary {
         @apply border-purple-600 text-purple-800 hover:shadow-[0_0_8px_#d5d231] hover:text-amber-500 font-semibold transition duration-300 ease-in-out
     }
 
     .btn-outline-secondary {
         @apply border-amber-200 text-amber-800 hover:to-amber-50 font-semibold transition duration-300 ease-in-out
+    }
+
+    .btn-outline-red {
+        @apply border-red-200 text-red-800 hover:to-red-50 font-semibold transition duration-300 ease-in-out
     }
 
     .btn-gradient-primary {
