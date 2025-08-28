@@ -1,58 +1,94 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import { Edit3, Mail, Phone, Linkedin, MapPin, X, Plus } from "lucide-react";
 import ProtectedRoute from "@/Components/ProtectedRoute";
 
 export default function ProfilePage() {
+    const { id } = useParams();
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [isEditOpen, setIsEditOpen] = useState(false);
+    const [editData, setEditData] = useState(null);
 
-    const [user, setUser] = useState({
-        name: "John Doe",
-        designation: "Software Engineer",
-        company: "Google",
-        location: "San Francisco, USA",
-        bio: "Passionate about building scalable web applications and helping the community grow.",
-        graduationYear: "2018",
-        department: "Computer Science",
-        email: "john.doe@example.com",
-        phone: "+1 234 567 890",
-        linkedin: "https://linkedin.com/in/johndoe",
-        education: [
-            { year: "2014 - 2018", degree: "B.Tech in Computer Science", institution: "ABC University" },
-        ],
-        work: [
-            { year: "2019 - Present", position: "Software Engineer", company: "Google" },
-            { year: "2018 - 2019", position: "Frontend Developer", company: "Startup XYZ" },
-        ],
-    });
+    // Fetch user by ID
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const res = await fetch(`/api/users/${id}`);
+                const data = await res.json();
+                setUser(data);
+                setEditData(data);
+            } catch (err) {
+                console.error("Failed to fetch user:", err);
+            } finally {
+                setLoading(false);
+            }
+        };
+        if (id) fetchUser();
+    }, [id]);
 
-    const [editData, setEditData] = useState(user);
+    const handleSave = async () => {
+        try {
+            console.log("Saving user:", editData); //  log the actual new data
 
-    const handleSave = () => {
-        setUser(editData);
-        setIsEditOpen(false);
+            const res = await fetch(`/api/users/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(editData), //  send editData instead of user
+            });
+
+            if (!res.ok) {
+                throw new Error("Failed to update user");
+            }
+
+            const updatedUser = await res.json();
+            console.log("Response:", updatedUser);
+
+            setUser(updatedUser); //  update UI with latest DB values
+            setEditData(updatedUser);
+            setIsEditOpen(false);
+        } catch (error) {
+            console.error("Error updating profile:", error);
+        }
     };
 
     const addEducation = () => {
         setEditData({
             ...editData,
-            education: [...editData.education, { year: "", degree: "", institution: "" }],
+            education: [...(editData.education || []), { year: "", degree: "", institution: "" }],
         });
     };
 
     const addWork = () => {
         setEditData({
             ...editData,
-            work: [...editData.work, { year: "", position: "", company: "" }],
+            work: [...(editData.work || []), { year: "", position: "", company: "" }],
         });
     };
+
+    if (loading) {
+        return (
+            <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-[9999]">
+                <div className="w-12 h-12 border-4 border-t-transparent border-purple-500 rounded-full animate-spin"></div>
+            </div>
+        );
+    }
+
+    if (!user) {
+        return (
+            <ProtectedRoute>
+                <div className="text-center text-gray-400 pt-20">User not found</div>
+            </ProtectedRoute>
+        );
+    }
 
     return (
         <ProtectedRoute>
             <div className="bg-black text-white min-h-screen pt-16 pb-4 px-2 sm:px-6">
                 {/* Profile Header */}
-                <div className="relative w-full h-48 sm:h-64 bg-gradient-to-r from-gray-800 to-gray-900 mt-0">
+                <div className="relative w-full h-48 sm:h-64 bg-gradient-to-r from-gray-800 to-gray-900">
                     <img
                         src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
                         alt="Cover"
@@ -61,7 +97,6 @@ export default function ProfilePage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
                 </div>
 
-
                 {/* Profile Content */}
                 <div className="max-w-5xl mx-auto relative -mt-20">
                     {/* Profile Card */}
@@ -69,16 +104,16 @@ export default function ProfilePage() {
                         {/* Profile Picture */}
                         <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
                             <img
-                                src="https://randomuser.me/api/portraits/men/75.jpg"
-                                alt="Profile"
+                                src={user.profilePic || "https://via.placeholder.com/150"}
+                                alt={user.fullName}
                                 className="w-32 h-32 rounded-full border-4 border-amber-600 object-cover"
                             />
                         </div>
 
                         <div className="mt-16">
-                            <h1 className="text-2xl sm:text-3xl font-bold">{user.name}</h1>
+                            <h1 className="text-2xl sm:text-3xl font-bold">{user.fullName}</h1>
                             <p className="text-gray-400 text-sm sm:text-base mt-1">
-                                {user.designation} at {user.company}
+                                {user.position} at {user.company}
                             </p>
                             <p className="text-gray-500 text-xs sm:text-sm flex items-center justify-center gap-2 mt-2">
                                 <MapPin size={16} /> {user.location}
@@ -101,9 +136,9 @@ export default function ProfilePage() {
                         <h2 className="text-xl font-bold text-with-secondary-outline mb-4">About</h2>
                         <p className="text-gray-300 mb-4">{user.bio}</p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-400">
-                            <p><strong>Graduation Year:</strong> {user.graduationYear}</p>
+                            <p><strong>Graduation Year:</strong> {user.batch}</p>
                             <p><strong>Department:</strong> {user.department}</p>
-                            <p><strong>Current Role:</strong> {user.designation}</p>
+                            <p><strong>Current Role:</strong> {user.position}</p>
                             <p><strong>Company:</strong> {user.company}</p>
                         </div>
                     </div>
@@ -114,14 +149,16 @@ export default function ProfilePage() {
                         <div className="space-y-3 text-gray-400">
                             <p className="flex items-center gap-3"><Mail size={18} /> {user.email}</p>
                             <p className="flex items-center gap-3"><Phone size={18} /> {user.phone}</p>
-                            <a
-                                href={user.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-3 hover:text-with-secondary-outline"
-                            >
-                                <Linkedin size={18} /> LinkedIn Profile
-                            </a>
+                            {user.linkedin && (
+                                <a
+                                    href={user.linkedin}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 hover:text-with-secondary-outline"
+                                >
+                                    <Linkedin size={18} /> LinkedIn Profile
+                                </a>
+                            )}
                         </div>
                     </div>
 
@@ -131,7 +168,7 @@ export default function ProfilePage() {
                         <div className="bg-gray-950 border border-gray-600 rounded-xl p-6 shadow-lg">
                             <h2 className="text-xl font-bold text-with-secondary-outline mb-4">Education</h2>
                             <div className="space-y-3">
-                                {user.education.map((edu, idx) => (
+                                {user.education?.map((edu, idx) => (
                                     <div key={idx} className="border-l-4 border-purple-600 pl-4">
                                         <p className="text-sm text-gray-500">{edu.year}</p>
                                         <p className="font-semibold">{edu.degree}</p>
@@ -145,7 +182,7 @@ export default function ProfilePage() {
                         <div className="bg-gray-950 border border-gray-600 rounded-xl p-6 shadow-lg">
                             <h2 className="text-xl font-bold text-with-secondary-outline mb-4">Work Experience</h2>
                             <div className="space-y-3">
-                                {user.work.map((job, idx) => (
+                                {user.work?.map((job, idx) => (
                                     <div key={idx} className="border-l-4 border-purple-600 pl-4">
                                         <p className="text-sm text-gray-500">{job.year}</p>
                                         <p className="font-semibold">{job.position}</p>
@@ -157,12 +194,10 @@ export default function ProfilePage() {
                     </div>
                 </div>
 
-
                 {/* Edit Profile Modal */}
                 {isEditOpen && (
                     <section className="py-1">
                         <div className="fixed inset-0 bg-black bg-opacity-80 z-50">
-                            {/* Modal container with fixed top 70px and bottom 0 */}
                             <div className="fixed top-[70px] bottom-0 left-0 right-0 flex items-start justify-center overflow-y-auto p-4">
                                 <div className="bg-gray-950 border border-gray-600 rounded-xl max-w-2xl w-full p-6 relative">
                                     <button
@@ -177,12 +212,12 @@ export default function ProfilePage() {
 
                                     {/* Form Fields */}
                                     <div className="space-y-3">
-                                        {["name", "designation", "company", "location", "bio", "graduationYear", "department", "email", "phone", "linkedin"].map((field) => (
+                                        {["fullName", "position", "company", "location", "bio", "batch", "department", "email", "phone", "linkedin"].map((field) => (
                                             <input
                                                 key={field}
                                                 type="text"
                                                 placeholder={field.replace(/([A-Z])/g, " $1")}
-                                                value={editData[field]}
+                                                value={editData[field] || ""}
                                                 onChange={(e) => setEditData({ ...editData, [field]: e.target.value })}
                                                 className="input-control"
                                             />
@@ -190,7 +225,7 @@ export default function ProfilePage() {
 
                                         {/* Education */}
                                         <h3 className="text-lg text-with-secondary-outline mt-4">Education</h3>
-                                        {editData.education.map((edu, idx) => (
+                                        {editData.education?.map((edu, idx) => (
                                             <div key={idx} className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                                                 <input
                                                     type="text"
@@ -236,7 +271,7 @@ export default function ProfilePage() {
 
                                         {/* Work */}
                                         <h3 className="text-lg text-with-secondary-outline mt-4">Work Experience</h3>
-                                        {editData.work.map((job, idx) => (
+                                        {editData.work?.map((job, idx) => (
                                             <div key={idx} className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                                                 <input
                                                     type="text"
@@ -292,7 +327,6 @@ export default function ProfilePage() {
                         </div>
                     </section>
                 )}
-
             </div>
         </ProtectedRoute>
     );
