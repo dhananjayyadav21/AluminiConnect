@@ -28,8 +28,14 @@ export default function JobsPage() {
         tech: "",
     });
 
-    const userRole = localStorage.getItem("userRole-edunet");
-    const token = localStorage.getItem("token-edunet");
+    // Client-side user info
+    const [userRole, setUserRole] = useState(null);
+    const [token, setToken] = useState(null);
+
+    useEffect(() => {
+        setUserRole(localStorage.getItem("userRole-edunet"));
+        setToken(localStorage.getItem("token-edunet"));
+    }, []);
 
     // Drag & Drop for Resume
     const { getRootProps: getResumeRootProps, getInputProps: getResumeInputProps } = useDropzone({
