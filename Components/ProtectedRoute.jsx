@@ -8,10 +8,10 @@ export default function ProtectedRoute({ children }) {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
-
+        const token = localStorage.getItem("token-edunet");
+        console.log(token)
         if (!token) {
-            toast.error("⚠️ Please login");
+            toast.error(" Please login");
             router.push("/login");
         } else {
             setIsAuthenticated(true);
