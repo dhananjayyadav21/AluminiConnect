@@ -37,7 +37,7 @@ const UserSchema = new mongoose.Schema(
         github: String,
         website: String,
 
-        // ✅ Add arrays
+        // Add arrays
         education: [EducationSchema],
         work: [WorkSchema],
 
