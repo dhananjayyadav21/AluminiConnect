@@ -63,6 +63,7 @@ export default function JobsPage() {
 
     // Post Job
     const postJob = async () => {
+        const userRole = localStorage.getItem("userRole-edunet");
         if (userRole !== "Alumni") return toast.error("Only alumni can post jobs");
         if (!newJob.title || !newJob.company || !newJob.location || !newJob.type)
             return toast.error("Please fill all required fields");

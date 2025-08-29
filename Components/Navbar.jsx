@@ -18,18 +18,16 @@ const NAV_LINKS = [
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const router = useRouter();
 
-    // Use a function to check login state directly from localStorage
-    const checkLogin = () => !!localStorage.getItem("token-edunet");
-
-    const [isLoggedIn, setIsLoggedIn] = useState(checkLogin());
-
-    // Optional: update login state if storage changes (multi-tab support)
+    // Check login on client-side only
     useEffect(() => {
-        const handleStorageChange = () => {
-            setIsLoggedIn(checkLogin());
-        };
+        const token = localStorage.getItem("token-edunet");
+        setIsLoggedIn(!!token);
+
+        // Listen to changes in localStorage for multi-tab support
+        const handleStorageChange = () => setIsLoggedIn(!!localStorage.getItem("token-edunet"));
         window.addEventListener("storage", handleStorageChange);
         return () => window.removeEventListener("storage", handleStorageChange);
     }, []);
