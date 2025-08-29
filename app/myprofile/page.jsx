@@ -95,6 +95,11 @@ export default function ProfilePage() {
             <div className="min-h-screen pt-16 pb-4 px-2 sm:px-6 bg-black text-white">
                 {/* Profile Header */}
                 <div className="relative w-full h-48 sm:h-64 bg-gradient-to-r from-gray-800 to-gray-900">
+                    <img
+                        src="/assets/img/event.jpeg"
+                        alt="Cover"
+                        className="absolute inset-0 w-full h-full object-cover opacity-30"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
                 </div>
 
@@ -103,7 +108,7 @@ export default function ProfilePage() {
                     <div className="bg-gray-950 border border-gray-600 rounded-xl shadow-lg p-6 sm:p-8 text-center relative">
                         <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
                             <img
-                                src={user?.profilePic || "https://via.placeholder.com/150"}
+                                src={user?.profilePic || "/assets/img/placeholder-profile.avif"}
                                 alt={user?.fullName || "User"}
                                 className="w-32 h-32 rounded-full border-4 border-amber-600 object-cover"
                             />

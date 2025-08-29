@@ -5,8 +5,10 @@ import { Search, MapPin, Briefcase, X, Upload, PlusCircle } from "lucide-react";
 import { useDropzone } from "react-dropzone";
 import ProtectedRoute from "@/Components/ProtectedRoute";
 import { toast, Toaster } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function JobsPage() {
+    const router = useRouter();
     const [jobsData, setJobsData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [selectedJob, setSelectedJob] = useState(null);
@@ -106,14 +108,15 @@ export default function JobsPage() {
 
         setLoading(true);
         try {
-            const res = await fetch("/api/apply", { method: "POST", body: formData });
-            if (!res.ok) throw new Error("Failed to apply");
+            router.back();
+            // const res = await fetch("/api/apply", { method: "POST", body: formData });
+            // if (!res.ok) throw new Error("Failed to apply");
 
-            toast.success("Application submitted successfully!");
-            setIsApplyOpen(false);
-            setResumeFile(null);
+            // toast.success("Application submitted successfully!");
+            // setIsApplyOpen(false);
+            // setResumeFile(null);
         } catch (err) {
-            toast.error(err.message || "Error submitting application");
+            // toast.error(err.message || "Error submitting application");
         } finally {
             setLoading(false);
         }

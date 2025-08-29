@@ -22,7 +22,6 @@ const UserSchema = new mongoose.Schema(
         // Profile fields
         profilePic: {
             type: String,
-            default: "https://randomuser.me/api/portraits/women/44.jpg",
         },
         position: String,
         company: String,

@@ -39,7 +39,7 @@ export default function AboutPage() {
                         </Link>
 
                         <Link
-                            href="/signup"
+                            href="/directory"
                             className="flex items-center gap-3 btn btn-outline-hover-secondary "
                         >
                             <span>View members</span> <span><Users className="w-5 h-5 text-amber-800 mx-auto" /></span>
