@@ -90,7 +90,7 @@ export default function ProfilePage() {
                 {/* Profile Header */}
                 <div className="relative w-full h-48 sm:h-64 bg-gradient-to-r from-gray-800 to-gray-900">
                     <img
-                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+                        src="/assets/img/event.jpeg"
                         alt="Cover"
                         className="absolute inset-0 w-full h-full object-cover opacity-30"
                     />
@@ -104,7 +104,7 @@ export default function ProfilePage() {
                         {/* Profile Picture */}
                         <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
                             <img
-                                src={user.profilePic || "https://via.placeholder.com/150"}
+                                src={user.profilePic || "/assets/img/placeholder-profile.avif"}
                                 alt={user.fullName}
                                 className="w-32 h-32 rounded-full border-4 border-amber-600 object-cover"
                             />

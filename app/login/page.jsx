@@ -32,8 +32,8 @@ export default function LoginPage() {
             if (res.ok) {
                 localStorage.setItem("token-edunet", data?.token);
                 localStorage.setItem("userRole-edunet", data?.user?.role);
-                setFormData({ email: "", password: "" });
                 router.push("/");
+                setFormData({ email: "", password: "" });
                 toast.success(" Login successful!");
             } else {
                 toast.error(data.error || "Invalid credentials");
