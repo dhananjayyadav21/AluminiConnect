@@ -21,7 +21,7 @@ async function connectDB() {
             dbName: "myapp",
             bufferCommands: false,
         }).then((mongoose) => {
-            console.log("✅ MongoDB connected");
+            console.log(" MongoDB connected");
             return mongoose;
         });
     }
