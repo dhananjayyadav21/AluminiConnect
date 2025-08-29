@@ -96,7 +96,7 @@ export default function ProfilePage() {
                 {/* Profile Header */}
                 <div className="relative w-full h-48 sm:h-64 bg-gradient-to-r from-gray-800 to-gray-900">
                     <img
-                        src="/assets/img/job.jpg"
+                        src="/assets/img/Job.jpg"
                         alt="Cover"
                         className="absolute inset-0 w-full h-full object-cover opacity-30"
                     />
