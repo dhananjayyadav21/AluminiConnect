@@ -30,11 +30,10 @@ export default function LoginPage() {
             const data = await res.json();
             setLoading(false);
             if (res.ok) {
-                localStorage.setItem("token-edunet", data.token);
+                localStorage.setItem("token-edunet", data?.token);
+                localStorage.setItem("userRole-edunet", data?.user?.role);
                 setFormData({ email: "", password: "" });
-                setTimeout(() => {
-                    router.push("/");
-                }, 1000);
+                router.push("/");
                 toast.success(" Login successful!");
             } else {
                 toast.error(data.error || "Invalid credentials");

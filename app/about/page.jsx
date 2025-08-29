@@ -32,7 +32,7 @@ export default function AboutPage() {
                     </p>
                     <div className="mt-10 flex justify-center items-center space-x-6">
                         <Link
-                            href="/signup"
+                            href="/directory"
                             className="flex items-center gap-3 bg-gradient-to-l btn btn-gradient-secondary "
                         >
                             <span>Join Now</span> <span><Target className="w-5 h-5 text-amber-800 mx-auto" /></span>

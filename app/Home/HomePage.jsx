@@ -46,7 +46,7 @@ export default function HomePage() {
 
         <div className="flex space-x-7 justify-center items-center my-10 md:my-15 md:text-xl text-bold">
           <Link
-            href="/signup"
+            href="/directory"
             className="flex items-center gap-3 bg-gradient-to-l btn btn-gradient-secondary "
           >
             <span>Join Now</span> <span><Users className="w-5 h-5 text-amber-800 mx-auto" /></span>

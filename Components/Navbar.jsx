@@ -36,7 +36,7 @@ export default function Navbar() {
             {/* 🔥 Full-screen Loader Overlay */}
             {loading && (
                 <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-[9999]">
-                    <div className="w-16 h-16 border-4 border-t-transparent border-purple-500 rounded-full animate-spin"></div>
+                    <div className="w-12 h-12 border-4 border-t-transparent border-purple-500 rounded-full animate-spin"></div>
                 </div>
             )}
 
@@ -60,6 +60,7 @@ export default function Navbar() {
                             <Link href="/directory" className="hover:text-[#a431d5] hover:underline hover:underline-offset-5 transition">Directory</Link>
                             <Link href="/jobs" className="hover:text-[#a431d5] hover:underline hover:underline-offset-5 transition">Jobs</Link>
                             <Link href="/eventspage" className="hover:text-[#a431d5] hover:underline hover:underline-offset-5 transition">Events</Link>
+                            <Link href="/myprofile" className="hover:text-[#a431d5] hover:underline hover:underline-offset-5 transition">Myprofile</Link>
 
                             {isLoggedIn ? (
                                 <button
@@ -113,6 +114,7 @@ export default function Navbar() {
                             <Link href="/directory" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Directory</Link>
                             <Link href="/jobs" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Jobs</Link>
                             <Link href="/eventspage" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Events</Link>
+                            <Link href="/myprofile" className="hover:text-[#a431d5]" onClick={() => setIsOpen(false)}>Myprofile</Link>
 
                             {isLoggedIn ? (
                                 <button
