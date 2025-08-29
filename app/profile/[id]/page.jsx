@@ -16,6 +16,7 @@ export default function ProfilePage() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
+                setLoading(true);
                 const res = await fetch(`/api/users/${id}`);
                 const data = await res.json();
                 setUser(data);
@@ -31,12 +32,12 @@ export default function ProfilePage() {
 
     const handleSave = async () => {
         try {
-            console.log("Saving user:", editData); //  log the actual new data
+            console.log("Saving user:", editData);
 
             const res = await fetch(`/api/users/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(editData), //  send editData instead of user
+                body: JSON.stringify(editData),
             });
 
             if (!res.ok) {
@@ -46,7 +47,7 @@ export default function ProfilePage() {
             const updatedUser = await res.json();
             console.log("Response:", updatedUser);
 
-            setUser(updatedUser); //  update UI with latest DB values
+            setUser(updatedUser);
             setEditData(updatedUser);
             setIsEditOpen(false);
         } catch (error) {

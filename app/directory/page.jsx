@@ -146,7 +146,7 @@ export default function AlumniDirectory() {
                                 >
                                     <div className="flex flex-col items-center text-center my-auto">
                                         <img
-                                            src={user.profilePic}
+                                            src={user.profilePic || "/assets/img/placeholder-profile.avif"}
                                             alt={user.fullName}
                                             className="w-24 h-24 rounded-full border-4 border-purple-500 mb-4 hover:scale-110 transition-transform duration-300"
                                         />
