@@ -6,7 +6,7 @@ import User from "@/models/User";
 export async function GET(req, { params }) {
     try {
         await connectDB();
-        const { id } = params;
+        const { id } = await params;
         const user = await User.findById(id);
 
         if (!user) {
@@ -23,7 +23,7 @@ export async function GET(req, { params }) {
 export async function PUT(req, { params }) {
     try {
         await connectDB();
-        const { id } = params;
+        const { id } = await params;
         const body = await req.json();
 
         const updatedUser = await User.findByIdAndUpdate(id, body, {

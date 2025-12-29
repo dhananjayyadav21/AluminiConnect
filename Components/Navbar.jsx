@@ -5,14 +5,16 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import toast from "react-hot-toast";
+import NotificationBell from "./NotificationBell";
 
 const NAV_LINKS = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/directory", label: "Directory" },
+    { href: "/friends", label: "Friends" },
     { href: "/jobs", label: "Jobs" },
     { href: "/eventspage", label: "Events" },
-    { href: "/myprofile", label: "Myprofile" },
+    { href: "/myprofile", label: "My Profile" },
 ];
 
 export default function Navbar() {
@@ -63,7 +65,7 @@ export default function Navbar() {
                 </div>
             )}
 
-            <nav className="bg-black text-white shadow-md fixed w-full z-50">
+            <nav className="bg-black/80 backdrop-blur-md text-white shadow-lg border-b border-gray-800 fixed w-full z-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         <Link href="/" className="text-purple-400 text-2xl font-bold">
@@ -76,6 +78,7 @@ export default function Navbar() {
                         {/* Desktop Menu */}
                         <div className="hidden md:flex items-center space-x-8">
                             {renderLinks()}
+                            {isLoggedIn && <NotificationBell />}
                             {isLoggedIn ? (
                                 <button
                                     onClick={handleLogout}

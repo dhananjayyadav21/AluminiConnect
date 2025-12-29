@@ -39,7 +39,7 @@ export async function POST(req) {
         console.log(decoded)
 
 
-        const user = await User.findById(decoded.id);
+        const user = await User.findById(decoded.userId);
         if (!user) return NextResponse.json({ error: "User not found" }, { status: 404 });
         if (user.role !== "Alumni") return NextResponse.json({ error: "Only Alumni can post jobs" }, { status: 403 });
 
@@ -52,3 +52,4 @@ export async function POST(req) {
         return NextResponse.json({ error: "Server error" }, { status: 500 });
     }
 }
+

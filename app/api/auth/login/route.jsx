@@ -22,7 +22,7 @@ export async function POST(req) {
         }
 
         const token = jwt.sign(
-            { id: user._id, email: user.email, role: user.role },
+            { userId: user._id.toString(), email: user.email, role: user.role },
             process.env.JWT_SECRET || "supersecret",
             { expiresIn: "12h" }
         );
@@ -37,3 +37,4 @@ export async function POST(req) {
         return NextResponse.json({ error: "Server error" }, { status: 500 });
     }
 }
+

@@ -101,7 +101,48 @@
     }
 
     .box-shadow-secondary {
-        @apply bg-gray-950 border border-gray-700 shadow-[0_0_5px_#f59e0b] rounded-lg p-6 hover:shadow-[0_0_10px_#f59e0b] hover:border-amber-500
+        @apply bg-gray-950 border border-gray-800 shadow-[0_0_5px_#f59e0b] rounded-lg p-6 hover:shadow-[0_0_10px_#f59e0b] hover:border-amber-500
+    }
+
+    /* Glassmorphism */
+    .glass {
+        @apply bg-white/10 backdrop-blur-md border border-white/20
+    }
+
+    .glass-dark {
+        @apply bg-black/40 backdrop-blur-md border border-gray-700
+    }
+
+    /* Skeleton Loader */
+    .skeleton {
+        @apply bg-gray-800 animate-pulse rounded
+    }
+
+    /* Glow Effects */
+    .glow-purple {
+        @apply shadow-[0_0_15px_rgba(164,49,213,0.5)]
+    }
+
+    .glow-amber {
+        @apply shadow-[0_0_15px_rgba(245,158,11,0.5)]
+    }
+
+    /* Premium Buttons */
+    .btn-premium-primary {
+        @apply px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-lg font-semibold
+        hover:from-purple-700 hover:to-purple-600 transition-all duration-300
+        shadow-[0_0_15px_rgba(164,49,213,0.4)] hover:shadow-[0_0_20px_rgba(164,49,213,0.6)]
+    }
+
+    .btn-premium-secondary {
+        @apply px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-500 text-white rounded-lg font-semibold
+        hover:from-amber-700 hover:to-amber-600 transition-all duration-300
+        shadow-[0_0_15px_rgba(245,158,11,0.4)] hover:shadow-[0_0_20px_rgba(245,158,11,0.6)]
+    }
+
+    /* Card Hover Effects */
+    .card-hover {
+        @apply transition-all duration-300 hover:scale-105 hover:-translate-y-1
     }
 
 }

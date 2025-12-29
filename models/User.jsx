@@ -42,6 +42,11 @@ const UserSchema = new mongoose.Schema(
 
         // Skills
         skills: [{ type: String }],
+
+        // Friend management
+        friends: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+        friendRequestsSent: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+        friendRequestsReceived: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     },
     { timestamps: true }
 );

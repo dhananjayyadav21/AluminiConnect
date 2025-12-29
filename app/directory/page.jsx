@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Search, MessageCircle, Eye } from "lucide-react";
+import { Search, Eye } from "lucide-react";
 import Link from "next/link";
 import ProtectedRoute from "@/Components/ProtectedRoute";
+import FriendRequestButton from "@/Components/FriendRequestButton";
 
 export default function AlumniDirectory() {
     const [users, setUsers] = useState([]);
@@ -142,9 +143,9 @@ export default function AlumniDirectory() {
                             filteredUsers.map((user) => (
                                 <div
                                     key={user._id}
-                                    className="bg-gray-950 border border-gray-800 rounded-xl p-6 box-shadow-primary transition-all duration-300 flex justify-center items-center"
+                                    className="bg-gray-950 border border-gray-800 rounded-xl p-6 box-shadow-primary transition-all duration-300 hover:scale-105"
                                 >
-                                    <div className="flex flex-col items-center text-center my-auto">
+                                    <div className="flex flex-col items-center text-center">
                                         <img
                                             src={user.profilePic || "/assets/img/placeholder-profile.avif"}
                                             alt={user.fullName}
@@ -154,20 +155,17 @@ export default function AlumniDirectory() {
                                         <p className="text-gray-400 text-sm">
                                             {user.position} at {user.company}
                                         </p>
-                                        <p className="text-gray-500 text-sm mt-1">
+                                        <p className="text-gray-500 text-sm mt-1 mb-4">
                                             {user.batch} • {user.department}
                                         </p>
-                                        <div className="flex gap-4 mt-5">
-                                            <Link href={`/profile/${user._id}`}>
-                                                <button className="flex items-center gap-2 btn bg-purple-500 rounded-md transition-all">
-                                                    <Eye size={18} /> Profile
+
+                                        <div className="flex flex-col gap-3 w-full">
+                                            <Link href={`/profile/${user._id}`} className="w-full">
+                                                <button className="w-full flex items-center justify-center gap-2 btn bg-gray-800 hover:bg-gray-700 rounded-md transition-all">
+                                                    <Eye size={18} /> View Profile
                                                 </button>
                                             </Link>
-                                            <Link href={`/chatbox/${user._id}`}>
-                                                <button className="flex items-center gap-2 btn btn-outline-primary rounded-md">
-                                                    <MessageCircle size={18} /> Message
-                                                </button>
-                                            </Link>
+                                            <FriendRequestButton userId={user._id} initialStatus="none" />
                                         </div>
                                     </div>
                                 </div>
