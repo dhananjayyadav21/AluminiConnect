@@ -33,6 +33,10 @@ export default function LoginPage() {
                 localStorage.setItem("token-edunet", data?.token);
                 localStorage.setItem("userRole-edunet", data?.user?.role);
                 localStorage.setItem("userId-edunet", data?.user?.id);
+
+                // Update Navbar immediately
+                window.dispatchEvent(new Event("auth-status-change"));
+
                 router.push("/");
                 setFormData({ email: "", password: "" });
                 toast.success(" Login successful!");

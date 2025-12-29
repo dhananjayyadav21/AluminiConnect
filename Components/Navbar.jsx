@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import toast from "react-hot-toast";
 import NotificationBell from "./NotificationBell";
@@ -21,28 +21,46 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const router = useRouter();
+    const pathname = usePathname();
 
-    // Check login on client-side only
+    // Check login on client-side only and on route change
     useEffect(() => {
-        const token = localStorage.getItem("token-edunet");
-        setIsLoggedIn(!!token);
+        const checkLogin = () => {
+            const token = localStorage.getItem("token-edunet");
+            setIsLoggedIn(!!token);
+            setIsMounted(true);
+        };
+
+        checkLogin();
 
         // Listen to changes in localStorage for multi-tab support
-        const handleStorageChange = () => setIsLoggedIn(!!localStorage.getItem("token-edunet"));
-        window.addEventListener("storage", handleStorageChange);
-        return () => window.removeEventListener("storage", handleStorageChange);
-    }, []);
+        window.addEventListener("storage", checkLogin);
+        // Custom event for immediate updates within the same tab
+        window.addEventListener("auth-status-change", checkLogin);
+
+        return () => {
+            window.removeEventListener("storage", checkLogin);
+            window.removeEventListener("auth-status-change", checkLogin);
+        };
+    }, [pathname]);
 
     const handleLogout = () => {
         setLoading(true);
         setTimeout(() => {
             localStorage.removeItem("token-edunet");
+            localStorage.removeItem("userId-edunet");
+            localStorage.removeItem("userRole-edunet");
+
+            // Dispatch custom event to update Navbar immediately
+            window.dispatchEvent(new Event("auth-status-change"));
+
             setIsLoggedIn(false);
             setLoading(false);
             toast.success("Logged out successfully");
             router.push("/login");
-        }, 1500);
+        }, 1000); // Reduced delay for smoother feel
     };
 
     const renderLinks = (closeMenu = false) =>
@@ -70,32 +88,36 @@ export default function Navbar() {
                     <div className="flex justify-between items-center h-16">
                         <Link href="/" className="text-purple-400 text-2xl font-bold">
                             <span className="text-with-primary-outline">EduNet</span> Nexus{" "}
-                            <span className="text-gray-400 text-sm hidden md:inline">
+                            <span className="text-gray-400 text-sm hidden xl:inline">
                                 | Find Your Next Opportunity
                             </span>
                         </Link>
 
                         {/* Desktop Menu */}
-                        <div className="hidden md:flex items-center space-x-8">
+                        <div className="hidden lg:flex items-center space-x-8">
                             {renderLinks()}
-                            {isLoggedIn && <NotificationBell />}
-                            {isLoggedIn ? (
-                                <button
-                                    onClick={handleLogout}
-                                    className="btn-sm btn-outline-hover-red flex items-center justify-center min-w-[80px]"
-                                    disabled={loading}
-                                >
-                                    Logout
-                                </button>
-                            ) : (
-                                <Link href="/login" className="btn-sm btn-outline-hover-secondary">
-                                    Login
-                                </Link>
+                            {isMounted && (
+                                <>
+                                    {isLoggedIn && <NotificationBell />}
+                                    {isLoggedIn ? (
+                                        <button
+                                            onClick={handleLogout}
+                                            className="btn-sm btn-outline-hover-red flex items-center justify-center min-w-[80px]"
+                                            disabled={loading}
+                                        >
+                                            Logout
+                                        </button>
+                                    ) : (
+                                        <Link href="/login" className="btn-sm btn-outline-hover-secondary">
+                                            Login
+                                        </Link>
+                                    )}
+                                </>
                             )}
                         </div>
 
                         {/* Mobile Menu Button */}
-                        <div className="md:hidden flex items-center">
+                        <div className="lg:hidden flex items-center">
                             <button onClick={() => setIsOpen(true)} aria-label="Open Menu">
                                 <Menu size={28} />
                             </button>
@@ -118,25 +140,30 @@ export default function Navbar() {
 
                         <div className="flex flex-col items-center space-y-8 text-xl mt-10">
                             {renderLinks(true)}
-                            {isLoggedIn ? (
-                                <button
-                                    onClick={() => {
-                                        handleLogout();
-                                        setIsOpen(false);
-                                    }}
-                                    className="btn btn-outline-hover-red flex items-center justify-center min-w-[100px]"
-                                    disabled={loading}
-                                >
-                                    Logout
-                                </button>
-                            ) : (
-                                <Link
-                                    href="/login"
-                                    className="btn btn-outline-hover-secondary"
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    Login
-                                </Link>
+                            {isMounted && (
+                                <>
+                                    {isLoggedIn && <NotificationBell />}
+                                    {isLoggedIn ? (
+                                        <button
+                                            onClick={() => {
+                                                handleLogout();
+                                                setIsOpen(false);
+                                            }}
+                                            className="btn btn-outline-hover-red flex items-center justify-center min-w-[100px]"
+                                            disabled={loading}
+                                        >
+                                            Logout
+                                        </button>
+                                    ) : (
+                                        <Link
+                                            href="/login"
+                                            className="btn btn-outline-hover-secondary"
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            Login
+                                        </Link>
+                                    )}
+                                </>
                             )}
                         </div>
                     </div>
