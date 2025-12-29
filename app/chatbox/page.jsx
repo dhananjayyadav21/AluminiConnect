@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { Search, Send, Paperclip, MoreVertical, Menu, X, Users, MessageSquare } from "lucide-react";
 import ProtectedRoute from "@/Components/ProtectedRoute";
 import toast from "react-hot-toast";
 import { useSearchParams, useRouter } from "next/navigation";
 
-export default function AlumniChatPage() {
+function ChatboxContent() {
     const searchParams = useSearchParams();
     const userId = searchParams.get("userId");
     const router = useRouter();
@@ -248,8 +248,8 @@ export default function AlumniChatPage() {
                             <button
                                 onClick={() => setSidebarTab("chats")}
                                 className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition ${sidebarTab === "chats"
-                                        ? "bg-purple-600 text-white shadow-lg shadow-purple-900/20"
-                                        : "text-gray-400 hover:text-gray-200"
+                                    ? "bg-purple-600 text-white shadow-lg shadow-purple-900/20"
+                                    : "text-gray-400 hover:text-gray-200"
                                     }`}
                             >
                                 <MessageSquare size={16} />
@@ -258,8 +258,8 @@ export default function AlumniChatPage() {
                             <button
                                 onClick={() => setSidebarTab("friends")}
                                 className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition ${sidebarTab === "friends"
-                                        ? "bg-purple-600 text-white shadow-lg shadow-purple-900/20"
-                                        : "text-gray-400 hover:text-gray-200"
+                                    ? "bg-purple-600 text-white shadow-lg shadow-purple-900/20"
+                                    : "text-gray-400 hover:text-gray-200"
                                     }`}
                             >
                                 <Users size={16} />
@@ -280,8 +280,8 @@ export default function AlumniChatPage() {
                                             setSidebarOpen(false);
                                         }}
                                         className={`flex items-center gap-3 p-4 cursor-pointer hover:bg-gray-900 transition-all border-l-4 ${selectedChat?._id === conv._id
-                                                ? "bg-gray-900 border-purple-600"
-                                                : "border-transparent"
+                                            ? "bg-gray-900 border-purple-600"
+                                            : "border-transparent"
                                             }`}
                                     >
                                         <div className="relative">
@@ -420,8 +420,8 @@ export default function AlumniChatPage() {
                                                         )}
                                                         <div
                                                             className={`relative px-4 py-2.5 rounded-2xl shadow-xl transition-all duration-300 hover:scale-[1.01] ${isOwn
-                                                                    ? "bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-tr-none border border-purple-400/20"
-                                                                    : "bg-gray-900 text-gray-100 rounded-tl-none border border-gray-800 hover:border-gray-700"
+                                                                ? "bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-tr-none border border-purple-400/20"
+                                                                : "bg-gray-900 text-gray-100 rounded-tl-none border border-gray-800 hover:border-gray-700"
                                                                 }`}
                                                         >
                                                             <p className="text-sm leading-relaxed">{msg.content}</p>
@@ -472,8 +472,8 @@ export default function AlumniChatPage() {
                                         onClick={handleSendMessage}
                                         disabled={!message.trim()}
                                         className={`p-3 rounded-xl transition-all duration-300 ${message.trim()
-                                                ? "bg-purple-600 text-white shadow-lg shadow-purple-600/30 hover:scale-110 active:scale-95 translate-y-0"
-                                                : "bg-gray-800 text-gray-600 cursor-not-allowed"
+                                            ? "bg-purple-600 text-white shadow-lg shadow-purple-600/30 hover:scale-110 active:scale-95 translate-y-0"
+                                            : "bg-gray-800 text-gray-600 cursor-not-allowed"
                                             }`}
                                     >
                                         <Send size={18} />
@@ -516,5 +516,17 @@ export default function AlumniChatPage() {
                 </main>
             </div>
         </ProtectedRoute>
+    );
+}
+
+export default function AlumniChatPage() {
+    return (
+        <Suspense fallback={
+            <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-[9999]">
+                <div className="w-12 h-12 border-4 border-t-transparent border-purple-500 rounded-full animate-spin"></div>
+            </div>
+        }>
+            <ChatboxContent />
+        </Suspense>
     );
 }
