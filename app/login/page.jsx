@@ -32,6 +32,7 @@ export default function LoginPage() {
             if (res.ok) {
                 localStorage.setItem("token-edunet", data?.token);
                 localStorage.setItem("userRole-edunet", data?.user?.role);
+                localStorage.setItem("userId-edunet", data?.user?.id);
                 router.push("/");
                 setFormData({ email: "", password: "" });
                 toast.success(" Login successful!");
