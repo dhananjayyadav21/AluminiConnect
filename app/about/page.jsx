@@ -12,16 +12,16 @@ export default function AboutPage() {
 
             {/*  Hero Section */}
             {/*  Hero Section */}
-            <section className="relative min-h-[50vh] flex flex-col justify-center items-center overflow-hidden">
+            <section className="relative min-h-[50vh] flex flex-col justify-center items-center overflow-hidden border-b border-white/10">
                 {/* Abstract background */}
                 <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] -mr-48 -mt-48 animate-pulse"></div>
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-600/10 rounded-full blur-[120px] -ml-48 -mb-48"></div>
 
                 <div className="relative z-10 w-full max-w-4xl px-6 text-center">
-                    <h1 className="text-3xl md:text-5xl font-edu-custom text-with-secondary-outline animate-fadeIn drop-shadow-lg mb-6">
+                    <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-white to-amber-400 drop-shadow-lg mb-6 py-2">
                         About EduNet Nexus
                     </h1>
-                    <p className="text-gray-300 text-base md:text-lg max-w-3xl mx-auto animate-fadeIn delay-200 mb-10 leading-relaxed">
+                    <p className="text-gray-300 text-xl md:text-2xl max-w-3xl mx-auto animate-fadeIn delay-200 mb-10 leading-relaxed">
                         Building strong connections between alumni and students through mentorship, networking, and career opportunities.
                     </p>
                     <div className="flex justify-center items-center space-x-6">

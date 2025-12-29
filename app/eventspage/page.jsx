@@ -108,32 +108,31 @@ export default function EventsPage() {
         <ProtectedRoute>
             <div className="min-h-screen bg-black text-white relative font-sans pt-16">
                 {/* Hero Section */}
-                <div className="relative w-full h-[60vh] md:h-[80vh]">
-                    <img
-                        src="/assets/img/event.jpeg"
-                        alt="Event Background"
-                        className="absolute inset-0 w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-tl from-black via-gray-950/90 to-black opacity-80 backdrop-blur-sm"></div>
+                <section className="relative min-h-[50vh] flex flex-col justify-center items-center overflow-hidden border-b border-white/10">
+                    {/* Abstract background */}
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] -mr-48 -mt-48 animate-pulse"></div>
+                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-600/10 rounded-full blur-[120px] -ml-48 -mb-48"></div>
 
-                    <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-                        <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400 drop-shadow-lg p-2">
+                    <div className="relative z-10 w-full max-w-4xl px-6 text-center">
+                        <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-white to-amber-400 drop-shadow-lg p-2 mb-4">
                             Events & Webinars
                         </h1>
-                        <p className="text-gray-300 mt-3 max-w-2xl text-lg">
+                        <p className="text-gray-300 max-w-2xl mx-auto text-xl md:text-2xl leading-relaxed">
                             Join, connect, and learn from the best in tech.
                         </p>
                         {userRole === "Alumni" && (
-                            <button
-                                onClick={() => setIsAddModalOpen(true)}
-                                className="mt-8 bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full font-bold transition flex items-center gap-2 shadow-lg shadow-purple-600/20"
-                            >
-                                <Plus size={20} />
-                                Add Event
-                            </button>
+                            <div className="flex justify-center mt-8">
+                                <button
+                                    onClick={() => setIsAddModalOpen(true)}
+                                    className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full font-bold transition flex items-center gap-2 shadow-lg shadow-purple-600/20"
+                                >
+                                    <PlusCircle size={20} />
+                                    Post Event
+                                </button>
+                            </div>
                         )}
                     </div>
-                </div>
+                </section>
 
                 {/* Events Section */}
                 <section className="bg-black py-20 px-6 relative overflow-hidden">
