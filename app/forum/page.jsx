@@ -89,7 +89,7 @@ export default function ForumPage() {
 
             {/* Hero Section */}
             <section className="text-center bg-gradient-to-r from-black via-gray-900 to-black py-10 px-4 sm:py-14 sm:px-6">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#32a8a8]">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#32a8a8]">
                     Join Discussions, Share Knowledge
                 </h1>
                 <p className="text-gray-400 mt-3 sm:mt-4 max-w-2xl mx-auto text-base sm:text-lg">

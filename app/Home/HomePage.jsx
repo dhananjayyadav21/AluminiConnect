@@ -31,39 +31,45 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="bg-gray-950 text-gray-100 h-screen flex flex-col">
+    <div className="min-h-screen bg-black text-white font-sans pt-16">
+      {/* Hero Section */}
+      <section className="relative min-h-[50vh] flex flex-col justify-center items-center overflow-hidden">
+        {/* Abstract background */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] -mr-48 -mt-48 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-600/10 rounded-full blur-[120px] -ml-48 -mb-48"></div>
 
-      {/*  Hero Section */}
-      <section className="bg-gradient-to-r from-black via-purple-950/40 to-black backdrop-blur-sm py-32 px-6 text-center min-h-full flex flex-col justify-center items-center md:mt-16">
-        <h1 className="text-bold text-4xl sm:text-[100px] font-edu-custom text-with-secondary-outline">A modern platform</h1>
-        <p className="my-4 sm:my-8 max-w-2xl mx-auto text-md sm:text-2xl">
-          To build alumni-student connections, mentorship, and career growth opportunities.
-        </p>
-        {/*  Animated Typing Text */}
-        <div className="text-md sm:text-2xl text-purple-400 font-semibold flex justify-center">
-          <span ref={typedElement}></span>
-        </div>
+        <div className="relative z-10 w-full max-w-4xl px-6 text-center">
+          <h1 className="font-bold text-3xl sm:text-6xl text-with-secondary-outline mb-6">A modern platform</h1>
+          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
+            To build alumni-student connections, mentorship, and career growth opportunities.
+          </p>
 
-        <div className="flex space-x-7 justify-center items-center my-10 md:my-15 md:text-xl text-bold">
-          <Link
-            href="/directory"
-            className="flex items-center gap-3 bg-gradient-to-l btn btn-gradient-secondary "
-          >
-            <span>Join Now</span> <span><Users className="w-5 h-5 text-amber-800 mx-auto" /></span>
-          </Link>
+          {/*  Animated Typing Text */}
+          <div className="text-sm sm:text-xl text-purple-400 font-medium flex justify-center mb-10">
+            <span ref={typedElement}></span>
+          </div>
 
-          <Link
-            href="/about"
-            className="btn btn-outline-hover-secondary"
-          >
-            About Me
-          </Link>
+          <div className="flex space-x-7 justify-center items-center md:text-lg font-medium">
+            <Link
+              href="/directory"
+              className="flex items-center gap-3 bg-gradient-to-l btn btn-gradient-secondary "
+            >
+              <span>Join Now</span> <span><Users className="w-5 h-5 text-amber-800 mx-auto" /></span>
+            </Link>
+
+            <Link
+              href="/about"
+              className="btn btn-outline-hover-secondary"
+            >
+              About Me
+            </Link>
+          </div>
         </div>
       </section>
 
       {/*  Features Section */}
       <section className="max-w-7xl mx-auto py-16 px-6">
-        <h2 className="text-3xl font-bold text-center text-with-primary-outline underline underline-offset-10 mb-12">Key Features</h2>
+        <h2 className="text-2xl font-semibold text-center text-with-primary-outline underline underline-offset-8 mb-12">Key Features</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <FeatureCard
             icon={<Users className="w-12 h-12 text-primary mx-auto" />}
@@ -96,8 +102,8 @@ export default function HomePage() {
       {/*  About Section */}
       <section className=" max-w-7xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div>
-          <h2 className="text-3xl font-bold text-with-secondary-outline mb-4">About Alumni Hub VDT</h2>
-          <p className="text-gray-400 text-lg leading-relaxed">
+          <h2 className="text-2xl font-semibold text-with-secondary-outline mb-4">About Alumni Hub VDT</h2>
+          <p className="text-gray-400 text-base leading-relaxed">
             Alumni Hub VDT (Virtual Discussion Table) bridges the gap between alumni and students,
             enabling knowledge sharing, mentorship, and professional networking for technical education.
             We focus on building a connected community that empowers future professionals.
@@ -132,7 +138,7 @@ function FeatureCard({ icon, title, desc }) {
   return (
     <div className="box-shadow-primary transition duration-1000 transform hover:scale-105">
       {icon}
-      <h3 className="text-xl font-semibold mt-4 text-[#ffffff] text-shadow-[0_0_6px_#a431d5]">{title}</h3>
+      <h3 className="text-lg font-medium mt-4 text-[#ffffff] text-shadow-[0_0_6px_#a431d5]">{title}</h3>
       <p className="text-gray-400 mt-2">{desc}</p>
     </div>
   );

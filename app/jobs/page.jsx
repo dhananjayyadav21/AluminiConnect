@@ -205,7 +205,7 @@ export default function JobsPage() {
                     <div className="relative z-10 w-full max-w-6xl">
                         <div className="h-16"></div>
                         <section className="text-center py-14 px-6">
-                            <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">
+                            <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">
                                 Career Opportunities
                             </h1>
                             <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">

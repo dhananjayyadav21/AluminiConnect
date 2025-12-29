@@ -85,7 +85,7 @@ export default function SignupPage() {
 
                     {/* Signup Box */}
                     <div className="bg-[#0d0d0d] bg-opacity-95 backdrop-blur-md p-8 rounded-2xl shadow-xl w-full max-w-lg z-10 border border-[#2b2b2b]">
-                        <h2 className="text-3xl font-bold text-center text-with-secondary-outline mb-6">Sign Up</h2>
+                        <h2 className="text-2xl font-semibold text-center text-with-secondary-outline mb-6">Sign Up</h2>
 
                         {/* Role Toggle */}
                         <div className="flex justify-center space-x-4 mb-6">

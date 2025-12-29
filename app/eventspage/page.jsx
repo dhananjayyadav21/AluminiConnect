@@ -117,7 +117,7 @@ export default function EventsPage() {
                     <div className="absolute inset-0 bg-gradient-to-tl from-black via-gray-950/90 to-black opacity-80 backdrop-blur-sm"></div>
 
                     <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-                        <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400 drop-shadow-lg p-2">
+                        <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400 drop-shadow-lg p-2">
                             Events & Webinars
                         </h1>
                         <p className="text-gray-300 mt-3 max-w-2xl text-lg">

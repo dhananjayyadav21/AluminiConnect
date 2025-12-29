@@ -94,7 +94,7 @@ export default function FriendRequestsPage() {
                 <section className="min-h-[35vh] text-center flex flex-col justify-center items-center bg-gradient-to-l from-black via-purple-950/30 to-black py-12 px-6 shadow-md">
                     <div className="flex items-center gap-3 mb-4">
                         <UserPlus className="w-12 h-12 text-amber-400" />
-                        <h1 className="text-4xl md:text-5xl font-bold text-with-secondary-outline">
+                        <h1 className="text-3xl md:text-4xl font-semibold text-with-secondary-outline">
                             Friend Requests
                         </h1>
                     </div>
@@ -109,8 +109,8 @@ export default function FriendRequestsPage() {
                         <button
                             onClick={() => setActiveTab("received")}
                             className={`px-6 py-3 font-semibold transition-all ${activeTab === "received"
-                                    ? "text-purple-400 border-b-2 border-purple-400"
-                                    : "text-gray-400 hover:text-gray-300"
+                                ? "text-purple-400 border-b-2 border-purple-400"
+                                : "text-gray-400 hover:text-gray-300"
                                 }`}
                         >
                             Received ({requests.received?.length || 0})
@@ -118,8 +118,8 @@ export default function FriendRequestsPage() {
                         <button
                             onClick={() => setActiveTab("sent")}
                             className={`px-6 py-3 font-semibold transition-all ${activeTab === "sent"
-                                    ? "text-purple-400 border-b-2 border-purple-400"
-                                    : "text-gray-400 hover:text-gray-300"
+                                ? "text-purple-400 border-b-2 border-purple-400"
+                                : "text-gray-400 hover:text-gray-300"
                                 }`}
                         >
                             Sent ({requests.sent?.length || 0})

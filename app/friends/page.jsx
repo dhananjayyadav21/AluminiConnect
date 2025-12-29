@@ -78,7 +78,7 @@ export default function FriendsPage() {
                 <section className="min-h-[40vh] text-center flex flex-col justify-center items-center bg-gradient-to-r from-black via-purple-950/30 to-black py-12 px-6 shadow-md">
                     <div className="flex items-center gap-3 mb-4">
                         <Users className="w-12 h-12 text-purple-400" />
-                        <h1 className="text-4xl md:text-5xl font-bold text-with-primary-outline">
+                        <h1 className="text-3xl md:text-4xl font-semibold text-with-primary-outline">
                             My Friends
                         </h1>
                     </div>
