@@ -33,19 +33,19 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-black text-white font-sans pt-26">
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex flex-col justify-center items-center overflow-hidden border-b border-white/10">
+      <section className="relative min-h-[40vh] sm:min-h-[50vh] flex flex-col justify-center items-center overflow-hidden">
         {/* Abstract background */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] -mr-48 -mt-48 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-600/10 rounded-full blur-[120px] -ml-48 -mb-48"></div>
 
         <div className="relative z-10 w-full max-w-4xl px-6 text-center">
-          <h1 className="font-bold text-5xl sm:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-white to-amber-400 drop-shadow-lg mb-6 py-2">A modern platform</h1>
-          <p className="text-gray-400 text-xl md:text-2xl max-w-2xl mx-auto mb-8 leading-relaxed">
+          <h1 className="font-bold text-4xl sm:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-white to-amber-400 drop-shadow-lg mb-6 py-2">A modern platform</h1>
+          <p className="text-gray-400 text-md md:text-lg max-w-2xl mx-auto mb-4 leading-relaxed">
             To build alumni-student connections, mentorship, and career growth opportunities.
           </p>
 
           {/*  Animated Typing Text */}
-          <div className="text-sm sm:text-xl text-purple-400 font-medium flex justify-center mb-10">
+          <div className="text-sm sm:text-lg text-purple-400 font-medium flex justify-center mb-10">
             <span ref={typedElement}></span>
           </div>
 
