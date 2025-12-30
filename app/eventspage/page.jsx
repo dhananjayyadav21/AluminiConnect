@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { CalendarDays, Plus, X, ExternalLink, User } from "lucide-react";
+import { CalendarDays, PlusCircle, X, ExternalLink, User } from "lucide-react";
 import ProtectedRoute from "@/Components/ProtectedRoute";
 
 export default function EventsPage() {
